@@ -1,0 +1,21 @@
+image: bradrydzewski/base
+notify:
+  email:
+    recipients:
+    - drone@clever.com
+publish:
+  docker:
+    docker_host: $$docker_server
+    email: $$docker_email
+    image_name: clever/heka-queue
+    password: $$docker_password
+    registry_login: true
+    tags:
+    - $(git rev-parse --short HEAD)
+    - latest
+    username: $$docker_username
+    when:
+      branch: master
+script:
+# no tests here
+  - echo "no tests here"

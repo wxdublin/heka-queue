@@ -1,0 +1,23 @@
+run:
+  type: docker
+env:
+- RABBITMQ_ERLANG_COOKIE
+- RABBITMQ_DEFAULT_USER
+- RABBITMQ_DEFAULT_PASS
+- RABBITMQ_NODE_PORT
+- RABBITMQ_MANAGEMENT_LISTENER_PORT
+resources:
+  cpu: 2
+volumes:
+- source: /var/lib/rabbitmq
+  target: /var/lib/rabbitmq
+expose:
+- name: management
+  port: 72                    # derived from standard port 15672
+  bind: 80
+  health_check:
+    type: http
+    path: /
+- name: amqp
+  port: 56                    # derived from standard port 15672
+  bind: 5672
