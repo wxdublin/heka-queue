@@ -48,20 +48,12 @@ if [ "$1" = 'rabbitmq-server' ]; then
 			      {$conf, <<"$val">>},
 			EOC
 		done
-		cat >> /etc/rabbitmq/rabbitmq.config <<-'EOH'
-			      {loopback_users, []}
-			    ]
-			  },
-        EOH
-        if [ "$RABBITMQ_MANAGEMENT_LISTENER_PORT" ]; then
-            cat >> /etc/rabbitmq/rabbitmq.conf <<-'EOH'
-            ,
-            {rabbitmq_management, [{listener, [{port, 12345}]}]}
-            EOH
-        fi
-		cat >> /etc/rabbitmq/rabbitmq.config <<-'EOF'
-			].
-		EOF
+        cat >> /etc/rabbitmq/rabbitmq.config <<-'EOF'
+                  {loopback_users, []}
+                ]
+              },{rabbitmq_management, [{listener, [{port, 1567}]}]}
+            ].
+        EOF
 	fi
 
 	chown -R rabbitmq /var/lib/rabbitmq
