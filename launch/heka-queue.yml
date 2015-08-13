@@ -13,11 +13,11 @@ volumes:
   target: /var/lib/rabbitmq
 expose:
 - name: management
-  port: 72                    # derived from standard port 15672
+  port: 1567                    # derived from standard port 15672
   bind: 80
   health_check:
     type: http
     path: /
 - name: amqp
-  port: 56                    # derived from standard port 15672
+  port: 5672                    # derived from standard port 5672
   bind: 5672
