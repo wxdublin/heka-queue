@@ -1,2 +1,2 @@
-# rabbitmq-service
-Rabbitmq service running at Clever
+# Heka Queue
+Queue service for heka input - output seperation
