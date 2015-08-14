@@ -21,3 +21,4 @@ expose:
 - name: amqp
   port: 5672                    # derived from standard port 5672
   bind: 5672
+  proto: tcp
