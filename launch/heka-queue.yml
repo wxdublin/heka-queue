@@ -1,11 +1,6 @@
 run:
   type: docker
-env:
-- RABBITMQ_ERLANG_COOKIE
-- RABBITMQ_DEFAULT_USER
-- RABBITMQ_DEFAULT_PASS
-- RABBITMQ_NODE_PORT
-- RABBITMQ_MANAGEMENT_LISTENER_PORT
+env: []
 resources:
   cpu: 2
 volumes:
